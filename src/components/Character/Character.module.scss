@@ -1,0 +1,36 @@
+.character {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    width: 600px;
+    height: 600px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    h1,
+    h2 {
+      text-align: center;
+    }
+  }
+  &__episodes {
+    h3,
+    ul {
+      text-align: center;
+    }
+    li {
+      list-style: none;
+    }
+  }
+  &__info,
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+}

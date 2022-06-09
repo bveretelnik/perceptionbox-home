@@ -1,0 +1,20 @@
+.photo {
+  position: relative;
+  height: 200px;
+  &__label {
+    position: absolute;
+    width: 400px;
+    height: 194px;
+    background-color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__media {
+    position: absolute;
+    cursor: pointer;
+  }
+}
