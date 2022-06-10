@@ -42,6 +42,9 @@ function App() {
       })
     );
   };
+
+  const getFavorite = () => characters.filter((val) => val.favorite === true);
+
   const removeCharacterPhoto = (id) => {
     setCharacters(
       characters?.map((item) => {
@@ -76,7 +79,12 @@ function App() {
   };
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar
+        user={user}
+        setUser={setUser}
+        characters={characters}
+        getFavorite={getFavorite}
+      />
       <Routes>
         <Route
           path="/"
@@ -110,6 +118,7 @@ function App() {
               <FavoriteList
                 characters={characters}
                 changeFavorite={changeFavorite}
+                getFavorite={getFavorite}
               />
             </PrivateRoute>
           }

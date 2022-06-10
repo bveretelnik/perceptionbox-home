@@ -3,6 +3,7 @@ import { Container } from "@mui/system";
 import React from "react";
 import CharactersCard from "../CharacterCard/CharactersCard";
 import Search from "../Search/Search";
+import styles from "./CharactersCardList.module.scss";
 
 export const CharactersCardList = ({
   characters,
@@ -13,22 +14,22 @@ export const CharactersCardList = ({
   handleFileSelected,
   handleUploadPhoto,
 }) => {
+  const getFilterCharacters = () => {
+    return characters.filter((val) => {
+      if (searchTerm === "") {
+        return val;
+      } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return val;
+      }
+    });
+  };
   return (
     <>
       <Search setSearchTerm={setSearchTerm} />
       <Container maxWidth="xl">
         <Grid container spacing={2}>
-          {characters
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.name.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((character) => (
+          {getFilterCharacters().length > 0 ? (
+            getFilterCharacters().map((character) => (
               <Grid item xs={8} md={4} key={character.id}>
                 <CharactersCard
                   character={character}
@@ -38,7 +39,14 @@ export const CharactersCardList = ({
                   handleUploadPhoto={handleUploadPhoto}
                 />
               </Grid>
-            ))}
+            ))
+          ) : (
+            <div className={styles.textContainer}>
+              <h1 className={styles.textContainer__text}>
+                Not found Character
+              </h1>
+            </div>
+          )}
         </Grid>
       </Container>
     </>

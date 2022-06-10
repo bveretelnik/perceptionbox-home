@@ -30,10 +30,8 @@ export default function CharactersCard({
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
-              <IconButton>
-                <DeleteIcon
-                  onClick={() => removeCharacterPhoto(character.id)}
-                />
+              <IconButton onClick={() => removeCharacterPhoto(character.id)}>
+                <DeleteIcon />
               </IconButton>
             </div>
           ) : (
@@ -49,9 +47,12 @@ export default function CharactersCard({
           )}
         </div>
       ) : (
-        <div>
+        <div className={styles.photo__inputWrapper}>
           <Input type="file" onChange={(e) => handleFileSelected(e)} />
-          <Button onClick={() => handleUploadPhoto(character.id)}>
+          <Button
+            onClick={() => handleUploadPhoto(character.id)}
+            className={styles.photo__addBtn}
+          >
             Upload new photo
           </Button>
         </div>

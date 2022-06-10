@@ -17,4 +17,14 @@
     position: absolute;
     cursor: pointer;
   }
+  &__inputWrapper {
+    height: 194px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__addBtn {
+    margin-top: 40px !important;
+  }
 }

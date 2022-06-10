@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.scss";
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, getFavorite }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -15,6 +15,11 @@ export default function NavBar({ user, setUser }) {
           </Link>
 
           <Link to="/favorite" className={styles.navbar__link}>
+            {getFavorite().length > 0 && user && (
+              <div className={styles.navbar__notification}>
+                <p>{getFavorite().length}</p>
+              </div>
+            )}
             Favorite
           </Link>
 
