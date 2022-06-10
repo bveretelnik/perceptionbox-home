@@ -30,7 +30,7 @@ export const CharactersCardList = ({
         <Grid container spacing={2}>
           {getFilterCharacters().length > 0 ? (
             getFilterCharacters().map((character) => (
-              <Grid item xs={8} md={4} key={character.id}>
+              <Grid item xs={12} md={4} key={character.id}>
                 <CharactersCard
                   character={character}
                   changeFavorite={changeFavorite}

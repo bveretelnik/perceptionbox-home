@@ -8,7 +8,7 @@ const FavoriteCharacter = ({ changeFavorite, getFavorite }) => {
     <>
       {getFavorite().length > 0 ? (
         getFavorite().map((character) => (
-          <Grid item xs={8} md={4} key={character.id}>
+          <Grid item xs={12} md={4} key={character.id}>
             <CharactersCard
               character={character}
               changeFavorite={changeFavorite}
